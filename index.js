@@ -35,5 +35,5 @@ app.controller('mainCtrl', function ($scope) {
     netlifyIdentity.on('logout', () => {
         netlifyIdentity.close();
         window.location.replace('/');
-    })
+    });
 });
