@@ -1,38 +1,37 @@
-// let app = angular.module("mainApp", ['ngRoute']);
+let app = angular.module("mainApp", ['ngRoute']);
 
-// app.config(function ($routeProvider) {
-//     $routeProvider
-//         .when("/", {
-//             templateUrl: "index.html"
-//         })
-//         .when("/a", {
-//             templateUrl: "index.html"
-//         })
-//         .when("/b", {
-//             templateUrl: "landing.html"
-//         })
-//         .when("/c", {
-//             templateUrl: "addpage.html"
-//         });
-// });
-
-// app.controller('mainCtrl', function ($scope, $http) {
-
-// });
-
-netlifyIdentity.on('init', () => {
-    initUser = netlifyIdentity.currentUser();
-    console.log(initUser);
+app.config(function ($routeProvider) {
+    $routeProvider
+        .when("/", {
+            templateUrl: "index.html"
+        })
+        .when("/a", {
+            templateUrl: "index.html"
+        })
+        .when("/b", {
+            templateUrl: "landing.html"
+        })
+        .when("/c", {
+            templateUrl: "addpage.html"
+        });
 });
 
-netlifyIdentity.on('login', () => {
-    if (initUser == null) {
-        window.location.replace('landing');
-    }
-    netlifyIdentity.close();
-});
+app.controller('mainCtrl', function ($scope, $http) {
 
-netlifyIdentity.on('logout', () => {
-    netlifyIdentity.close();
-    window.location.replace('/');
+    netlifyIdentity.on('init', () => {
+        initUser = netlifyIdentity.currentUser();
+        console.log(initUser);
+    });
+
+    netlifyIdentity.on('login', () => {
+        if (initUser == null) {
+            window.location.replace('#!b');
+        }
+        netlifyIdentity.close();
+    });
+
+    netlifyIdentity.on('logout', () => {
+        netlifyIdentity.close();
+        window.location.replace('/');
+    })
 });
