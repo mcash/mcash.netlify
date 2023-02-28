@@ -1,20 +1,3 @@
-netlifyIdentity.on('init', () => {
-    initUser = netlifyIdentity.currentUser();
-    console.log(initUser);
-});
-
-netlifyIdentity.on('login', () => {
-    if (initUser == null) {
-        window.location.replace('landing');
-    }
-    netlifyIdentity.close();
-});
-
-netlifyIdentity.on('logout', () => {
-    netlifyIdentity.close();
-    window.location.replace('/');
-});
-
 let app = angular.module("myApp", [ngRoute]);
 app.config(function ($routeProvider) {
     $routeProvider
@@ -31,3 +14,20 @@ app.config(function ($routeProvider) {
             templateUrl: "addpage.html"
         });
 }); 
+
+netlifyIdentity.on('init', () => {
+    initUser = netlifyIdentity.currentUser();
+    console.log(initUser);
+});
+
+netlifyIdentity.on('login', () => {
+    if (initUser == null) {
+        window.location.replace('#!b');
+    }
+    netlifyIdentity.close();
+});
+
+netlifyIdentity.on('logout', () => {
+    netlifyIdentity.close();
+    window.location.replace('/');
+});
