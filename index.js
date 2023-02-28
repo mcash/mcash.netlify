@@ -14,3 +14,19 @@ netlifyIdentity.on('logout', () => {
     netlifyIdentity.close();
     window.location.replace('/');
 });
+
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "index.html"
+      })
+      .when("/a", {
+        templateUrl : "index.html"
+      })
+      .when("/b", {
+        templateUrl : "landing.html"
+      })
+      .when("/c", {
+        templateUrl : "addpage.html"
+      });
+}); 
