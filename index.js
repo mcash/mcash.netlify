@@ -3,17 +3,14 @@ let app = angular.module('mainApp', ['ngRoute']);
 app.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'index.html'
-        })
-        .when('/a', {
-            templateUrl: 'index.html'
-        })
-        .when('/b', {
             templateUrl: 'landing.html'
         })
-        .when('/c', {
+        .when('/a', {
+            templateUrl: 'landing.html'
+        })
+        .when('/b', {
             templateUrl: 'addpage.html'
-        });
+        });;
 });
 
 app.controller('mainCtrl', function ($scope) {
