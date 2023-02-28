@@ -18,20 +18,21 @@ app.config(function ($routeProvider) {
 
 app.controller('mainCtrl', function ($scope, $http) {
 
-    netlifyIdentity.on('init', () => {
-        initUser = netlifyIdentity.currentUser();
-        console.log(initUser);
-    });
+});
 
-    netlifyIdentity.on('login', () => {
-        if (initUser == null) {
-            window.location.replace('landing');
-        }
-        netlifyIdentity.close();
-    });
+netlifyIdentity.on('init', () => {
+    initUser = netlifyIdentity.currentUser();
+    console.log(initUser);
+});
 
-    netlifyIdentity.on('logout', () => {
-        netlifyIdentity.close();
-        window.location.replace('/');
-    })
+netlifyIdentity.on('login', () => {
+    if (initUser == null) {
+        window.location.replace('landing');
+    }
+    netlifyIdentity.close();
+});
+
+netlifyIdentity.on('logout', () => {
+    netlifyIdentity.close();
+    window.location.replace('/');
 });
