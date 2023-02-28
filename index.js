@@ -15,18 +15,19 @@ netlifyIdentity.on('logout', () => {
     window.location.replace('/');
 });
 
-app.config(function($routeProvider) {
+let app = angular.module("myApp", [ngRoute]);
+app.config(function ($routeProvider) {
     $routeProvider
-    .when("/", {
-        templateUrl : "index.html"
-      })
-      .when("/a", {
-        templateUrl : "index.html"
-      })
-      .when("/b", {
-        templateUrl : "landing.html"
-      })
-      .when("/c", {
-        templateUrl : "addpage.html"
-      });
+        .when("/", {
+            templateUrl: "index.html"
+        })
+        .when("/a", {
+            templateUrl: "index.html"
+        })
+        .when("/b", {
+            templateUrl: "landing.html"
+        })
+        .when("/c", {
+            templateUrl: "addpage.html"
+        });
 }); 
