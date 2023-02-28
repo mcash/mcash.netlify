@@ -17,9 +17,9 @@ app.config(function ($routeProvider) {
 });
 
 app.controller('mainCtrl', function ($scope, $http) {
-    //
-    let initUser = netlifyIdentity.currentUser();
     
+    let initUser = netlifyIdentity.currentUser();
+
     netlifyIdentity.on('init', () => {
         initUser = netlifyIdentity.currentUser();
         console.log(initUser);
