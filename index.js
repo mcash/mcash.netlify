@@ -1,24 +1,24 @@
-let app = angular.module("mainApp", ['ngRoute']);
+// let app = angular.module("mainApp", ['ngRoute']);
 
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when("/", {
-            templateUrl: "index.html"
-        })
-        .when("/a", {
-            templateUrl: "index.html"
-        })
-        .when("/b", {
-            templateUrl: "landing.html"
-        })
-        .when("/c", {
-            templateUrl: "addpage.html"
-        });
-});
+// app.config(function ($routeProvider) {
+//     $routeProvider
+//         .when("/", {
+//             templateUrl: "index.html"
+//         })
+//         .when("/a", {
+//             templateUrl: "index.html"
+//         })
+//         .when("/b", {
+//             templateUrl: "landing.html"
+//         })
+//         .when("/c", {
+//             templateUrl: "addpage.html"
+//         });
+// });
 
-app.controller('mainCtrl', function ($scope, $http) {
+// app.controller('mainCtrl', function ($scope, $http) {
 
-});
+// });
 
 netlifyIdentity.on('init', () => {
     initUser = netlifyIdentity.currentUser();
