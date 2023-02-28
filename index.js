@@ -18,19 +18,21 @@ app.config(function ($routeProvider) {
 
 app.controller('mainCtrl', function ($scope, $http) {
     //
-    $scope.netlifyIdentity.on('init', () => {
+    let initUser = netlifyIdentity.currentUser();
+    
+    netlifyIdentity.on('init', () => {
         initUser = netlifyIdentity.currentUser();
         console.log(initUser);
     });
 
-    $scope.netlifyIdentity.on('login', () => {
+    netlifyIdentity.on('login', () => {
         if (initUser == null) {
             window.location.replace('#!b');
         }
         netlifyIdentity.close();
     });
 
-    $scope.netlifyIdentity.on('logout', () => {
+    netlifyIdentity.on('logout', () => {
         netlifyIdentity.close();
         window.location.replace('/');
     })
