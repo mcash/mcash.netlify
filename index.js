@@ -1,4 +1,5 @@
-let app = angular.module("myApp", [ngRoute]);
+let app = angular.module("mainApp", ['ngRoute']);
+
 app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
@@ -13,21 +14,24 @@ app.config(function ($routeProvider) {
         .when("/c", {
             templateUrl: "addpage.html"
         });
-}); 
-
-netlifyIdentity.on('init', () => {
-    initUser = netlifyIdentity.currentUser();
-    console.log(initUser);
 });
 
-netlifyIdentity.on('login', () => {
-    if (initUser == null) {
-        window.location.replace('#!b');
-    }
-    netlifyIdentity.close();
-});
+app.controller('mainCtrl', function ($scope, $http) {
 
-netlifyIdentity.on('logout', () => {
-    netlifyIdentity.close();
-    window.location.replace('/');
+    netlifyIdentity.on('init', () => {
+        initUser = netlifyIdentity.currentUser();
+        console.log(initUser);
+    });
+
+    netlifyIdentity.on('login', () => {
+        if (initUser == null) {
+            window.location.replace('#!b');
+        }
+        netlifyIdentity.close();
+    });
+
+    netlifyIdentity.on('logout', () => {
+        netlifyIdentity.close();
+        window.location.replace('/');
+    })
 });
