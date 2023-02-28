@@ -25,7 +25,7 @@ app.controller('mainCtrl', function ($scope, $http) {
 
     netlifyIdentity.on('login', () => {
         if (initUser == null) {
-            window.location.replace('#!b');
+            window.location.replace('landing');
         }
         netlifyIdentity.close();
     });
